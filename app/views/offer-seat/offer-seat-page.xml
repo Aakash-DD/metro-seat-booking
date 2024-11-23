@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Offer a Seat" />
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Label text="Train Details" class="text-xl font-bold mb-4" />
+            
+            <Label text="Train ID" class="font-medium mb-1" />
+            <TextField text="{{ trainId }}" hint="Enter train ID" class="input p-2 mb-4 border rounded" />
+            
+            <Label text="Coach Number" class="font-medium mb-1" />
+            <ListPicker items="{{ coachNumbers }}" selectedIndex="{{ selectedCoachIndex }}" class="mb-4" />
+            
+            <Label text="Select Seat" class="text-xl font-bold mb-4" />
+            
+            <!-- Coach Layout -->
+            <GridLayout rows="auto" columns="*" class="mb-4">
+                <ScrollView orientation="horizontal">
+                    <GridLayout rows="auto, auto" columns="{{ seatLayoutColumns }}" class="coach-layout p-2">
+                        <!-- Seats are dynamically generated in the view model -->
+                        <Repeater items="{{ seatLayout }}" row="0">
+                            <Repeater.itemTemplate>
+                                <StackLayout col="{{ col }}" class="seat-container m-1">
+                                    <Button text="{{ seatNumber }}" 
+                                           class="{{ isSelected ? 'selected-seat' : 'available-seat' }}"
+                                           tap="{{ $parent.onSeatTap }}"
+                                           width="40"
+                                           height="40" />
+                                </StackLayout>
+                            </Repeater.itemTemplate>
+                        </Repeater>
+                        
+                        <!-- Second row of seats -->
+                        <Repeater items="{{ seatLayoutBottom }}" row="1">
+                            <Repeater.itemTemplate>
+                                <StackLayout col="{{ col }}" class="seat-container m-1">
+                                    <Button text="{{ seatNumber }}" 
+                                           class="{{ isSelected ? 'selected-seat' : 'available-seat' }}"
+                                           tap="{{ $parent.onSeatTap }}"
+                                           width="40"
+                                           height="40" />
+                                </StackLayout>
+                            </Repeater.itemTemplate>
+                        </Repeater>
+                    </GridLayout>
+                </ScrollView>
+            </GridLayout>
+
+            <Label text="Selected Seat: {{ selectedSeatInfo }}" class="text-lg text-center mb-4" textWrap="true" />
+            
+            <Label text="Station" class="font-medium mb-1" />
+            <ListPicker items="{{ stations }}" selectedIndex="{{ selectedStationIndex }}" class="mb-4" />
+            
+            <Button text="Offer Seat" tap="{{ onOfferSeat }}" class="-primary" isEnabled="{{ selectedSeatNumber > 0 }}" />
+        </StackLayout>
+    </ScrollView>
+</Page>

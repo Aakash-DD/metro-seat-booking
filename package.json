@@ -1,0 +1,25 @@
+{
+  "name": "metro-seat-booking",
+  "main": "app/app.ts",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@nativescript/core": "8.5.0",
+    "@nativescript/firebase-analytics": "3.1.0",
+    "@nativescript/firebase-app-check": "3.1.0",
+    "@nativescript/firebase-core": "3.1.0",
+    "@nativescript/firebase-firestore": "3.1.0",
+    "@nativescript/theme": "3.0.2"
+  },
+  "devDependencies": {
+    "@nativescript/android": "8.5.0",
+    "@nativescript/ios": "8.5.0",
+    "@nativescript/preview-cli": "^1.0.14",
+    "@nativescript/stackblitz": "0.0.7",
+    "@nativescript/tailwind": "2.0.1",
+    "@nativescript/types": "8.5.0",
+    "@nativescript/webpack": "5.0.13",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.0.4"
+  }
+}

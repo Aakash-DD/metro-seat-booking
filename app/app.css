@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.coach-layout {
+    background-color: #f0f0f0;
+    border-radius: 8;
+    padding: 8;
+}
+
+.available-seat {
+    background-color: #ffb6c1;
+    color: #000000;
+    border-radius: 4;
+}
+
+.selected-seat {
+    background-color: #ffd700;
+    color: #000000;
+    border-radius: 4;
+}
+
+.seat-container {
+    margin: 2;
+}
